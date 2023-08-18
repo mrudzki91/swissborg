@@ -2,18 +2,18 @@ import { useEffect, useReducer } from 'react';
 import { get } from '../api/swissborg';
 import { EurRates } from '../types/swissborgApi';
 
-type StateType = {
+type EurRatesState = {
     isLoading: boolean;
     error?: string;
     eurRates?: EurRates;
 };
 
-type ActionType = {
+type Action = {
     type: string;
     value?: string | EurRates;
 };
 
-const transasctionsReducer = (state: StateType, action: ActionType): StateType => {
+const eurRatesReducer = (state: EurRatesState, action: Action): EurRatesState => {
     switch (action.type) {
         case 'EUR_RATES_FETCHING_STARTED':
             return { ...state, error: undefined, isLoading: true };
@@ -31,7 +31,7 @@ const transasctionsReducer = (state: StateType, action: ActionType): StateType =
 };
 
 const useEurRates = () => {
-    const [state, dispatch] = useReducer(transasctionsReducer, { isLoading: true });
+    const [state, dispatch] = useReducer(eurRatesReducer, { isLoading: true });
 
     useEffect(() => {
         const getEurRates = async () => {

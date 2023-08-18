@@ -2,18 +2,18 @@ import { useEffect, useReducer } from 'react';
 import { get } from '../api/swissborg';
 import { Transaction } from '../types/swissborgApi';
 
-type StateType = {
+type TransactionsState = {
     isLoading: boolean;
     error?: string;
     transactions?: Transaction[];
 };
 
-type ActionType = {
+type Action = {
     type: string;
     value?: string | Transaction[];
 };
 
-const transasctionsReducer = (state: StateType, action: ActionType): StateType => {
+const transasctionsReducer = (state: TransactionsState, action: Action): TransactionsState => {
     switch (action.type) {
         case 'TRANSACTIONS_FETCHING_STARTED':
             return { ...state, error: undefined, isLoading: true };
