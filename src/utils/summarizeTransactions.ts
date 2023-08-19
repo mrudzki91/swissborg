@@ -38,7 +38,7 @@ const getSummaryFieldForTransaction = (transaction: Transaction): keyof Summary 
     }
 };
 
-export default (
+const summarizeTransactions = (
     summary: SummarizedTranslations,
     transaction: Transaction,
 ): SummarizedTranslations => {
@@ -53,3 +53,5 @@ export default (
         },
     };
 };
+
+export default summarizeTransactions;
