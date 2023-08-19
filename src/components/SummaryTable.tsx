@@ -22,7 +22,7 @@ const SummaryTable: React.FC<SummaryTableProps> = ({ transactions, eurRates }) =
     });
 
     return (
-        <div>
+        <div className="table-container">
             <table>
                 <thead>
                     <tr>
@@ -57,7 +57,7 @@ const SummaryTable: React.FC<SummaryTableProps> = ({ transactions, eurRates }) =
                                     summary[currency].completedDeposits -
                                         summary[currency].completedWithdrawals,
                                     eurRates,
-                                )?.toFixed(2) ?? `${currency} rate not available`}
+                                )?.toFixed(2) ?? <span>{`${currency} rate not available`}</span>}
                             </td>
                         </tr>
                     ))}

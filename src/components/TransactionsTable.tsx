@@ -9,7 +9,7 @@ type TransactionsTableProps = {
 
 const TransactionsTable: React.FC<TransactionsTableProps> = ({ transactions, eurRates }) => {
     return (
-        <div>
+        <div className="table-container">
             <table>
                 <thead>
                     <tr>
@@ -32,7 +32,9 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({ transactions, eur
                                     transaction.currency,
                                     transaction.amount,
                                     eurRates,
-                                )?.toFixed(2) ?? `${transaction.currency} rate not available`}
+                                )?.toFixed(2) ?? (
+                                    <span>{`${transaction.currency} rate not available`}</span>
+                                )}
                             </td>
                             <td>{transaction.type}</td>
                             <td>{transaction.status}</td>

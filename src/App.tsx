@@ -23,6 +23,7 @@ function App() {
             ) : (
                 <>
                     <TransactionsTable transactions={transactions ?? []} eurRates={eurRates} />
+                    <h2>Summary</h2>
                     <SummaryTable transactions={transactions ?? []} eurRates={eurRates} />
                 </>
             )}
