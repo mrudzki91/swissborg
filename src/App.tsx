@@ -19,7 +19,7 @@ function App() {
             {loadingTransactions || loadingEurRates ? (
                 <LoadingScreen />
             ) : eurRatesError || transactionsError ? (
-                <></>
+                <>{eurRatesError ?? transactionsError ?? null}</>
             ) : (
                 <>
                     <TransactionsTable transactions={transactions ?? []} eurRates={eurRates} />
